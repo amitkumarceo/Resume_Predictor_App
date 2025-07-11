@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## STEP 0 - SETUP ENVIRONMENT
 
 # #### Import NLTK and important datasets needed for TOKENIZATION
 
@@ -29,8 +28,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 import nltk
-import matplotlib.pyplot as plt
-import seaborn as sns
 import joblib
 import streamlit as st
 
@@ -216,26 +213,10 @@ print("\nBest model classification report:\n", classification_report(y_test, y_p
 # In[31]:
 
 
-from sklearn.metrics import confusion_matrix
-import seaborn as sns
 
-# confusion matrix for the best model
-conf_matrix = confusion_matrix(y_test, y_pred_best)
-
-#Plot confusion matrix
-plt.figure(figsize=(10, 8))
-sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=label_encoder.classes_, yticklabels=label_encoder.classes_)
-plt.xlabel('Predicted Label')
-plt.ylabel('True Label')
-plt.title('Confusion Matrix')
-plt.show()
 
 
 # In[32]:
-
-
-# Print accuracy of the final model
-print(f"Final Model Accuracy: {accuracy_best:.4f}")
 
 
 # #### SAVE THE FINAL MODEL
